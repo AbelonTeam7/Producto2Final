@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest" href="manifest.json">
+	<body style="background-color:#0DFBF2;">
+		<div style="text-align: center">
+		<img src="images/icono.png">
+	</div>
+	</body>
+	<body>
+		<div style="text-align: center">
+		a: <input type="text" id="txta">
+		b: <input type="text" id="txtb">
+		c: <input type="text" id="txtc">
+		<br />
+		d: <input type="text" id="txtd">
+		e: <input type="text" id="txte">
+		f: <input type="text" id="txtf">
+		<br />
+		<br />
+		x1: <input type="text" id="txtx1"> 
+		<br />
+		x2: <input type="text" id="txtx2"> 
+		<br />
+		x3: <input type="text" id="txtx3">
+		<br />
+		x4: <input type="text" id="txtx4">
+		<br />
+		</div>
+		<div style="text-align: center">
+		<br />
+		<button type="submit" id="btnCalcular">Graficar</button>
+		<button type="submit" id="btnClean">Regresar</button>
+		<br />
+		</div>
+		<br />
+		<div style="text-align: center">
+		<div id="res">
+		</div>
+		<div id="res2"></div>
+		<div id="res3"></div>
+		<canvas 
+            id="canvas" 
+            width="800" 
+            height="400">
+        </canvas>
+		<script src="algo.js"></script>
+		<script async src="sw.js"></script>
+        <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('sw.js')
+                .then(
+                    function(registration){
+                        alert('Reg. satisfactorio del sw');
+                        console.log('Reg. satisfactorio del sw en el ámbito: ',
+                                    registration.scope);
+                    }
+                ).catch(
+                    function(err){
+                        alert('El SW no se registró');
+                        console.log('El SW no se registró', err);
+                    }
+                );
+            }
+        </script>
+		</div>
+	</body>
+</html>
